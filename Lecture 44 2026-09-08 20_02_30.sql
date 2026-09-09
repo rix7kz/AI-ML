@@ -48,12 +48,12 @@ inner join `e1.inventory` as i
 on p.ProductID=i.ProductID
 left join `e1.order_items` as oi
 on p.ProductID=oi.ProductID
-where oi.ProductID null
+where oi.ProductID is null
 group by 
   p.ProductID,
   p.ProductName,
   p.SupplierID
-order total_stock
+order by total_stock
 
 Find employees who have handled at least one order whose total
 value is greater than ₹75,000.
@@ -114,7 +114,7 @@ from `e1.suppliers` as s
 inner join `e1.products` as p
 on s.SupplierID = p.SupplierID
 group by s.SupplierName
-order by avg_mrp des
+order by avg_mrp desc
 
 
 
